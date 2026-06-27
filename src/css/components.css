@@ -171,3 +171,59 @@
 .tag.rec { background: rgba(0,214,143,0.15); color: #6ee7b7; border: 1px solid rgba(0,214,143,0.3); }
 .tag.opt { background: rgba(168,85,247,0.15); color: #c4b5fd; border: 1px solid rgba(168,85,247,0.3); }
 .tag.new { background: rgba(255,213,79,0.15); color: #ffd54f; border: 1px solid rgba(255,213,79,0.3); }
+/* ════════════════ SEARCH ════════════════ */
+.sidebar-search {
+  padding: 0 16px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 8px;
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 6px 10px;
+  gap: 6px;
+  transition: border-color .2s;
+}
+.search-wrapper:focus-within {
+  border-color: rgba(99,179,237,0.6);
+  background: rgba(99,179,237,0.08);
+}
+.search-icon { font-size: 14px; opacity: .5; flex-shrink: 0; }
+#search-input {
+  flex: 1; background: none; border: none; outline: none;
+  color: #e2e8f0; font-family: inherit; font-size: 13px; min-width: 0;
+}
+#search-input::placeholder { color: rgba(255,255,255,0.3); }
+.search-clear-btn {
+  background: none; border: none; color: rgba(255,255,255,0.4);
+  cursor: pointer; font-size: 12px; padding: 0 2px; flex-shrink: 0;
+}
+.search-clear-btn:hover { color: #e2e8f0; }
+.search-meta {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-top: 6px; padding: 0 2px;
+}
+#search-count { font-size: 11px; color: rgba(255,255,255,0.4); }
+.search-nav-btns { display: flex; gap: 4px; }
+.search-nav-btns button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; color: #e2e8f0;
+  cursor: pointer; font-size: 11px; padding: 2px 7px;
+  transition: background .15s;
+}
+.search-nav-btns button:hover { background: rgba(255,255,255,0.15); }
+mark.sh {
+  background: rgba(251,191,36,0.35);
+  color: inherit; border-radius: 2px; padding: 0 1px;
+}
+mark.sh-active {
+  background: rgba(251,191,36,0.85);
+  color: #1a1a2e;
+  box-shadow: 0 0 0 2px rgba(251,191,36,0.5);
+}
+.hide-search { display: none !important; }
