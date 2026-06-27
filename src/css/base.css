@@ -1,0 +1,82 @@
+/* ══════════════════════════════════════════════════════════
+   BASE STYLES: Variables, Reset, Typography
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #0a0e17;
+  --bg2: #0f1623;
+  --bg3: #161d2e;
+  --panel: #1a2236;
+  --panel2: #1e2840;
+  --border: #253047;
+  --border2: #2e3d5c;
+  --blue: #1d6fdb;
+  --blue-light: #4a9eff;
+  --blue-dim: #0d2d5e;
+  --cyan: #00c8e0;
+  --cyan-dim: #063040;
+  --green: #00d68f;
+  --green-dim: #003d28;
+  --amber: #ffa726;
+  --amber-dim: #3d2000;
+  --red: #ff4d6a;
+  --red-dim: #3d0010;
+  --purple: #a855f7;
+  --purple-dim: #2a0060;
+  --pink: #f472b6;
+  --text: #e2ecff;
+  --text2: #8fa5cc;
+  --text3: #4d6280;
+  --accent: #4a9eff;
+  --gold: #ffd54f;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'Sora', sans-serif;
+  --radius: 10px;
+  --sidebar-w: 285px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Typography */
+h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; color: #fff; margin-bottom: 10px; line-height: 1.2; }
+h2 { font-size: 22px; font-weight: 700; color: var(--text); margin: 44px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 17px; font-weight: 600; color: var(--text); margin: 30px 0 10px; }
+h4 { font-size: 13px; font-weight: 600; color: var(--text2); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.8px; }
+p { color: var(--text2); margin-bottom: 14px; }
+strong { color: var(--text); font-weight: 600; }
+em { color: var(--cyan); font-style: normal; font-weight: 600; }
+
+code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: rgba(74,158,255,0.08);
+  border: 1px solid rgba(74,158,255,0.2);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #93c5fd;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }

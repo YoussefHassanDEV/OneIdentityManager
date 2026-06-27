@@ -1,0 +1,9 @@
+/* ══════════════════════════════════════════════════════════
+   MAIN.CSS: Entry Point - Imports All Stylesheets
+   ══════════════════════════════════════════════════════════ */
+
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'sections.css';
+@import 'responsive.css';

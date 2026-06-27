@@ -1,0 +1,25 @@
+{
+  "name": "oneim-zero-to-hero",
+  "version": "1.0.0",
+  "description": "Complete learning guide for One Identity Manager - from zero to hero",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html",
+    "build": "echo 'Static site - no build needed'",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "oneidentity",
+    "oneim",
+    "iga",
+    "identity-governance",
+    "learning",
+    "guide"
+  ],
+  "author": "Youssef Hassan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoussefHassanDEV/OneIdentityManager"
+  }
+}

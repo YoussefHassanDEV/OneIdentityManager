@@ -1,0 +1,39 @@
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE: Mobile & Tablet Breakpoints
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  #content { padding: 40px 48px; }
+  .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
+  
+  #sidebar { display: none; }
+  #main { margin-left: 0; }
+  #content { padding: 28px 20px; }
+  
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .feature-list { grid-template-columns: 1fr; }
+  
+  .page-header { padding: 28px 24px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+}
+
+@media (max-width: 600px) {
+  #content { padding: 16px 12px; }
+  
+  .stat-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .flow-container { overflow-x: scroll; }
+  
+  .page-header { padding: 20px 16px; margin-bottom: 28px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; margin: 28px 0 12px; }
+  
+  .step-item { gap: 14px; margin-bottom: 20px; padding-bottom: 20px; }
+}
