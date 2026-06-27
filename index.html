@@ -31,7 +31,21 @@
   <div class="sidebar-search">
     <input type="text" id="navSearch" placeholder="🔍 Search chapters…" oninput="filterNav(this.value)" autocomplete="off">
   </div>
-
+  <!-- ════════ SEARCH BAR ════════ -->
+  <div class="sidebar-search">
+    <div class="search-wrapper">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search-input" placeholder="Search guide… (Ctrl+K)" autocomplete="off" spellcheck="false">
+      <button id="search-clear" class="search-clear-btn" style="display:none">✕</button>
+    </div>
+    <div class="search-meta" id="search-meta" style="display:none">
+      <span id="search-count"></span>
+      <div class="search-nav-btns">
+        <button onclick="prevMatch()" title="Previous">↑</button>
+        <button onclick="nextMatch()" title="Next">↓</button>
+      </div>
+    </div>
+  </div>
   <div class="sidebar-section">Start Here</div>
   <ul class="sidebar-nav">
     <li><a href="#" onclick="return show('overview')" id="nav-overview" class="active"><span class="nav-icon">🏠</span> Introduction <span class="nav-badge green">Start</span><span class="nav-check">✓</span></a></li>
