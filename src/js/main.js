@@ -1,18 +1,17 @@
 /**
  * OneIM - Main Entry Point
- * Initializes all modules
+ * Initializes all modules (ES module build under src/).
  */
 
-// Import modules
+import CONFIG from './config.js';
 import Navigation from './navigation.js';
 import UI from './ui.js';
 import Progress from './progress.js';
 
-// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🚀 OneIM Learning Platform Initialized');
-  
-  Navigation.init();
-  UI.init();
+  console.log(`🚀 ${CONFIG.app.name} v${CONFIG.app.version} initialized`);
+
+  UI.init();          // copy buttons, back-to-top, keyboard nav, quiz restore
   Progress.init();
+  Navigation.init();  // resumes last section, builds pager, marks visited
 });
