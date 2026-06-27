@@ -5,324 +5,887 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Identity Manager — Zero to Hero</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
 
-<!-- ════════════════ SIDEBAR ════════════════ -->
+<!-- SIDEBAR NAVIGATION -->
 <nav id="sidebar">
   <div class="sidebar-logo">
     <div class="brand">OneIM · Zero → Hero</div>
-    <div class="sub">Complete Study Guide — SmplID v2.0</div>
+    <div class="sub">Enterprise Identity Governance</div>
     <div class="progress-ring">
       <span id="progress-label">0% Complete</span>
       <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     </div>
   </div>
 
-  <div class="sidebar-section">Start Here</div>
+  <div class="sidebar-section">🎓 Foundation</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('overview')" id="nav-overview" class="active"><span class="nav-icon">🏠</span> Introduction <span class="nav-badge green">Start</span></a></li>
-    <li><a href="#" onclick="show('iga-concepts')" id="nav-iga-concepts"><span class="nav-icon">🧠</span> IGA Fundamentals</a></li>
-    <li><a href="#" onclick="show('oneim-intro')" id="nav-oneim-intro"><span class="nav-icon">🔐</span> What is OneIM?</a></li>
+    <li><a href="#" onclick="show('welcome')" id="nav-welcome" class="active"><span class="nav-icon">👋</span> Welcome <span class="nav-badge green">Start</span></a></li>
+    <li><a href="#" onclick="show('what-is-iam')" id="nav-what-is-iam"><span class="nav-icon">🔑</span> What is IAM/IGA?</a></li>
+    <li><a href="#" onclick="show('why-oneim')" id="nav-why-oneim"><span class="nav-icon">❓</span> Why OneIM Matters</a></li>
   </ul>
 
-  <div class="sidebar-section">Architecture</div>
+  <div class="sidebar-section">🧠 Theory & Concepts</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('architecture')" id="nav-architecture"><span class="nav-icon">🗺️</span> System Architecture</a></li>
-    <li><a href="#" onclick="show('components')" id="nav-components"><span class="nav-icon">🧩</span> Components Deep Dive</a></li>
-    <li><a href="#" onclick="show('data-model')" id="nav-data-model"><span class="nav-icon">🗄️</span> Data Model</a></li>
+    <li><a href="#" onclick="show('iga-fundamentals')" id="nav-iga-fundamentals"><span class="nav-icon">📚</span> IGA Fundamentals</a></li>
+    <li><a href="#" onclick="show('jml-lifecycle')" id="nav-jml-lifecycle"><span class="nav-icon">🔄</span> Joiner-Mover-Leaver</a></li>
+    <li><a href="#" onclick="show('rbac-concepts')" id="nav-rbac-concepts"><span class="nav-icon">🎭</span> RBAC & Access Control</a></li>
+    <li><a href="#" onclick="show('compliance-regulations')" id="nav-compliance-regulations"><span class="nav-icon">⚖️</span> Compliance & SOX</a></li>
   </ul>
 
-  <div class="sidebar-section">Installation</div>
+  <div class="sidebar-section">🏗️ OneIM Platform</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('prerequisites')" id="nav-prerequisites"><span class="nav-icon">✅</span> Prerequisites</a></li>
-    <li><a href="#" onclick="show('install-sql')" id="nav-install-sql"><span class="nav-icon">🗃️</span> SQL Server Setup</a></li>
-    <li><a href="#" onclick="show('install-oneim')" id="nav-install-oneim"><span class="nav-icon">⚙️</span> OneIM Installation</a></li>
-    <li><a href="#" onclick="show('post-install')" id="nav-post-install"><span class="nav-icon">🔧</span> Post-Install Config</a></li>
+    <li><a href="#" onclick="show('oneim-overview')" id="nav-oneim-overview"><span class="nav-icon">🔷</span> OneIM Overview</a></li>
+    <li><a href="#" onclick="show('architecture')" id="nav-architecture"><span class="nav-icon">🗺️</span> Architecture</a></li>
+    <li><a href="#" onclick="show('core-modules')" id="nav-core-modules"><span class="nav-icon">🧩</span> Core Modules</a></li>
+    <li><a href="#" onclick="show('connectors')" id="nav-connectors"><span class="nav-icon">🔗</span> Connectors</a></li>
   </ul>
 
-  <div class="sidebar-section">Core Configuration</div>
+  <div class="sidebar-section">⚙️ Setup & Configuration</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('ad-sync')" id="nav-ad-sync"><span class="nav-icon">🔄</span> AD Synchronization</a></li>
-    <li><a href="#" onclick="show('identity-mgmt')" id="nav-identity-mgmt"><span class="nav-icon">👤</span> Identity Management</a></li>
-    <li><a href="#" onclick="show('business-roles')" id="nav-business-roles"><span class="nav-icon">🏢</span> Business Roles & RBAC</a></li>
-    <li><a href="#" onclick="show('it-shop')" id="nav-it-shop"><span class="nav-icon">🛒</span> IT Shop & Workflows</a></li>
+    <li><a href="#" onclick="show('requirements')" id="nav-requirements"><span class="nav-icon">✅</span> Requirements</a></li>
+    <li><a href="#" onclick="show('installation')" id="nav-installation"><span class="nav-icon">📥</span> Installation</a></li>
+    <li><a href="#" onclick="show('first-config')" id="nav-first-config"><span class="nav-icon">🔧</span> First Configuration</a></li>
   </ul>
 
-  <div class="sidebar-section">Advanced Topics</div>
+  <div class="sidebar-section">🎯 Practical Skills</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('compliance')" id="nav-compliance"><span class="nav-icon">📋</span> Compliance & Attestation</a></li>
-    <li><a href="#" onclick="show('scripting')" id="nav-scripting"><span class="nav-icon">💻</span> Scripting & Customization</a></li>
-    <li><a href="#" onclick="show('schema-ext')" id="nav-schema-ext"><span class="nav-icon">🔬</span> Schema Extension</a></li>
-    <li><a href="#" onclick="show('processes')" id="nav-processes"><span class="nav-icon">⚡</span> Processes & Events</a></li>
-    <li><a href="#" onclick="show('security')" id="nav-security"><span class="nav-icon">🛡️</span> Security & Permissions</a></li>
+    <li><a href="#" onclick="show('identity-management')" id="nav-identity-management"><span class="nav-icon">👤</span> Identity Management</a></li>
+    <li><a href="#" onclick="show('business-roles')" id="nav-business-roles"><span class="nav-icon">🏢</span> Business Roles</a></li>
+    <li><a href="#" onclick="show('request-workflows')" id="nav-request-workflows"><span class="nav-icon">🔀</span> Request Workflows</a></li>
   </ul>
 
-  <div class="sidebar-section">Practice & Resources</div>
+  <div class="sidebar-section">📖 Resources</div>
   <ul class="sidebar-nav">
-    <li><a href="#" onclick="show('labs')" id="nav-labs"><span class="nav-icon">🧪</span> Lab Guide Order</a></li>
-    <li><a href="#" onclick="show('quiz')" id="nav-quiz"><span class="nav-icon">🎯</span> Knowledge Quiz <span class="nav-badge amber">Test</span></a></li>
-    <li><a href="#" onclick="show('troubleshoot')" id="nav-troubleshoot"><span class="nav-icon">🔍</span> Troubleshooting</a></li>
-    <li><a href="#" onclick="show('resources')" id="nav-resources"><span class="nav-icon">📚</span> Resources</a></li>
+    <li><a href="#" onclick="show('resources')" id="nav-resources"><span class="nav-icon">📚</span> Additional Resources</a></li>
+    <li><a href="#" onclick="show('glossary')" id="nav-glossary"><span class="nav-icon">📖</span> Glossary</a></li>
   </ul>
 </nav>
 
-<!-- ════════════════ MAIN ════════════════ -->
+<!-- MAIN CONTENT -->
 <div id="main"><div id="content">
 
-<!-- ══════════ SECTION: OVERVIEW ══════════ -->
-<div id="overview" class="section active">
+<!-- SECTION: WELCOME -->
+<div id="welcome" class="section active">
   <div class="page-header">
-    <div class="badge">🚀 ZERO TO HERO — COMPLETE GUIDE</div>
-    <h1>One Identity Manager<br>Complete Learning Path</h1>
-    <p>A full theoretical and practical guide. Read it, study it, apply the labs — and you'll have professional-grade knowledge of OneIM from architecture to advanced customization.</p>
+    <div class="badge">🚀 WELCOME TO ONE IDENTITY MANAGER</div>
+    <h1>From Zero to OneIM Expert</h1>
+    <p>A complete, beginner-friendly guide to identity management and One Identity Manager. No prior experience required. We'll take you from basics to professional expertise.</p>
   </div>
 
   <div class="stat-grid">
-    <div class="stat-box"><span class="stat-num">16</span><div class="stat-lbl">Topics Covered</div></div>
-    <div class="stat-box"><span class="stat-num">19</span><div class="stat-lbl">Lab Exercises</div></div>
-    <div class="stat-box"><span class="stat-num">30+</span><div class="stat-lbl">Code Examples</div></div>
-    <div class="stat-box"><span class="stat-num">∞</span><div class="stat-lbl">Career Value</div></div>
+    <div class="stat-box"><span class="stat-num">10+</span><div class="stat-lbl">Core Concepts</div></div>
+    <div class="stat-box"><span class="stat-num">25+</span><div class="stat-lbl">Detailed Topics</div></div>
+    <div class="stat-box"><span class="stat-num">Real</span><div class="stat-lbl">World Examples</div></div>
+    <div class="stat-box"><span class="stat-num">100%</span><div class="stat-lbl">Accurate Info</div></div>
   </div>
 
-  <h2>What This Guide Covers</h2>
-  <div class="card-grid">
-    <div class="card blue">
-      <span class="card-icon">🧠</span>
-      <div class="card-title">Theory — IGA Concepts</div>
-      <div class="card-desc">Identity Governance terminology, RBAC vs ABAC, provisioning, de-provisioning, attestation, SoD — everything you need to understand the WHY behind OneIM.</div>
-    </div>
-    <div class="card cyan">
-      <span class="card-icon">🗺️</span>
-      <div class="card-title">Architecture — How It Works</div>
-      <div class="card-desc">Multi-tier architecture, data flow, component communication, DBQueue mechanics, synchronization engine — understand the system end-to-end.</div>
-    </div>
-    <div class="card green">
-      <span class="card-icon">⚙️</span>
-      <div class="card-title">Installation — Step by Step</div>
-      <div class="card-desc">Full installation walkthrough: SQL Server setup, OneIM database creation, service configuration, web portal deployment, AD synchronization setup.</div>
-    </div>
-    <div class="card amber">
-      <span class="card-icon">🔧</span>
-      <div class="card-title">Configuration — Core Tasks</div>
-      <div class="card-desc">Identity management, business roles, IT Shop, approval workflows, target system connectors — the daily work of an OneIM administrator.</div>
-    </div>
-    <div class="card purple">
-      <span class="card-icon">💻</span>
-      <div class="card-title">Advanced — Scripts & Custom</div>
-      <div class="card-desc">VB.NET scripting, schema extensions, custom processes and events, Designer deep dive — turning you into an OneIM developer.</div>
-    </div>
-    <div class="card red">
-      <span class="card-icon">🎯</span>
-      <div class="card-title">Practice — Labs & Quizzes</div>
-      <div class="card-desc">19 ordered lab exercises, knowledge-check quizzes, troubleshooting guides, and a curated resources list to accelerate your learning.</div>
-    </div>
-  </div>
-
-  <h2>Your Learning Path</h2>
-  <div class="flow-container">
-    <div class="flow-step">
-      <div class="flow-num">01</div>
-      <div class="flow-title">IGA Concepts</div>
-      <div class="flow-desc">Learn the terminology and industry concepts</div>
-      <div class="flow-arrow">›</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-num">02</div>
-      <div class="flow-title">Architecture</div>
-      <div class="flow-desc">Understand how OneIM is built</div>
-      <div class="flow-arrow">›</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-num">03</div>
-      <div class="flow-title">Install</div>
-      <div class="flow-desc">Build your lab environment</div>
-      <div class="flow-arrow">›</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-num">04</div>
-      <div class="flow-title">Configure</div>
-      <div class="flow-desc">Set up AD, roles, IT Shop</div>
-      <div class="flow-arrow">›</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-num">05</div>
-      <div class="flow-title">Customize</div>
-      <div class="flow-desc">Scripts, processes, schema</div>
-      <div class="flow-arrow">›</div>
-    </div>
-    <div class="flow-step">
-      <div class="flow-num">06</div>
-      <div class="flow-title">Expert</div>
-      <div class="flow-desc">Labs + Quizzes = Hero 🏆</div>
-    </div>
-  </div>
+  <h2>How to Use This Guide</h2>
+  <ol class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Start with "What is IAM/IGA?"</div>
+        <div class="step-desc">Understand the basics. We explain everything from the ground up without assuming technical knowledge.</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Learn OneIM Concepts</div>
+        <div class="step-desc">Go through the theory sections in order. Each builds on the previous one. Real-world examples are included throughout.</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Explore the Platform</div>
+        <div class="step-desc">Understand architecture, modules, and how everything connects. We use diagrams and step-by-step breakdowns.</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Learn Hands-On Skills</div>
+        <div class="step-desc">Configuration, workflows, and practical tasks. By the end, you'll know how to work with OneIM.</div>
+      </div>
+    </li>
+  </ol>
 
   <div class="callout info">
     <div class="callout-icon">💡</div>
-    <div><strong>How to use this guide:</strong> Follow the sidebar sections in order. Each section builds on the previous one. Before each topic, watch the corresponding YouTube videos listed in Resources.</div>
+    <div><strong>Learning Tips:</strong>
+      <ul style="margin-top: 8px;">
+        <li>• Read sections in order (they build on each other)</li>
+        <li>• Take notes on new terminology</li>
+        <li>• Use the Glossary section whenever you see unfamiliar terms</li>
+        <li>• Check real-world examples to see practical applications</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What You'll Learn</h2>
+  <div class="card-grid">
+    <div class="card blue">
+      <span class="card-icon">🔑</span>
+      <div class="card-title">IAM vs IGA</div>
+      <div class="card-desc">The difference between Identity & Access Management (IAM) and Identity Governance & Administration (IGA), and why you need both.</div>
+    </div>
+    <div class="card cyan">
+      <span class="card-icon">🏗️</span>
+      <div class="card-title">OneIM Architecture</div>
+      <div class="card-desc">How OneIM is structured internally. What are all the pieces? How do they work together? Full diagrams included.</div>
+    </div>
+    <div class="card green">
+      <span class="card-icon">⚙️</span>
+      <div class="card-title">Setup & Installation</div>
+      <div class="card-desc">Step-by-step guide to installing OneIM. Hardware requirements, prerequisites, configuration wizards explained clearly.</div>
+    </div>
+    <div class="card amber">
+      <span class="card-icon">🔄</span>
+      <div class="card-title">Joiner-Mover-Leaver</div>
+      <div class="card-desc">The identity lifecycle. What happens when someone joins your company? Transfers? Leaves? Fully automated with OneIM.</div>
+    </div>
+    <div class="card purple">
+      <span class="card-icon">👥</span>
+      <div class="card-title">Identity Management</div>
+      <div class="card-desc">Creating and managing user identities, organizations, roles, and permissions. Practical step-by-step examples.</div>
+    </div>
+    <div class="card red">
+      <span class="card-icon">🎯</span>
+      <div class="card-title">Business Workflows</div>
+      <div class="card-desc">How to build request workflows, approvals, provisioning, and attestation campaigns that real companies use.</div>
+    </div>
   </div>
 </div>
 
-<!-- ══════════ SECTION: IGA CONCEPTS ══════════ -->
-<div id="iga-concepts" class="section">
+<!-- SECTION: WHAT IS IAM/IGA -->
+<div id="what-is-iam" class="section">
   <div class="page-header">
-    <div class="badge green">CHAPTER 1 — THEORY</div>
-    <h1>IGA Fundamentals</h1>
-    <p>Before touching OneIM, you must understand the field it operates in. Identity Governance and Administration (IGA) is a discipline — OneIM is its implementation.</p>
+    <div class="badge">🟢 BEGINNER</div>
+    <h1>What is IAM and IGA?</h1>
+    <p>Two critical but different disciplines. IAM (Identity & Access Management) handles authentication. IGA (Identity Governance & Administration) handles compliance and lifecycle. Let's understand both.</p>
   </div>
-  <div class="tier-indicator tier-beginner">🟢 Beginner — Essential Foundation</div>
 
-  <h2>The Core Problem IGA Solves</h2>
-  <p>In every organization, people join, move between departments, and eventually leave. Each person needs access to systems — email, file shares, business applications, HR systems, AD accounts, etc.</p>
+  <h2>Real-World Scenario</h2>
+  <div class="callout info">
+    <div class="callout-icon">📖</div>
+    <div>
+      <strong>Imagine a bank with 10,000 employees.</strong> Sarah joins as a teller. After 3 years, she's promoted to branch manager. Then after 5 years, she's laid off during a downturn.
+      <br><br>
+      <strong>Questions that arise:</strong>
+      <ul style="margin-top: 8px;">
+        <li>✓ Can Sarah log into the system? (IAM)</li>
+        <li>✓ Should Sarah have access to customer account info? (IGA)</li>
+        <li>✓ When she was promoted, did we remove teller access? (IGA)</li>
+        <li>✓ When she was laid off, was ALL her access disabled immediately? (IGA)</li>
+        <li>✓ Can we prove to auditors that everything was done correctly? (IGA)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>IAM — Identity & Access Management</h2>
+  <p><strong>IAM is about authentication and immediate access decisions.</strong> It answers: "Can you log in right now? Can you access this resource right now?"</p>
+  
+  <table class="data-table">
+    <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Primary Function</td><td>Authentication (proving who you are) and authorization (deciding what you can do)</td></tr>
+      <tr><td class="label">Real-Time Decision</td><td>When you try to log in or access something RIGHT NOW, IAM systems check: "Is this allowed?"</td></tr>
+      <tr><td class="label">Tools</td><td>Active Directory, Azure AD, Okta, Google Workspace, LDAP servers</td></tr>
+      <tr><td class="label">Time Horizon</td><td>Immediate (seconds, minutes) - what you can do RIGHT NOW</td></tr>
+      <tr><td class="label">Who Uses It</td><td>IT infrastructure teams, system administrators</td></tr>
+      <tr><td class="label">Example</td><td>You swipe your ID card at the building entrance. The reader checks if your card is valid (IAM says yes/no)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>IGA — Identity Governance & Administration</h2>
+  <p><strong>IGA is about managing who SHOULD have access and proving you did it correctly.</strong> It answers: "Should this person have this access? Is it still needed? Can we audit everything?"</p>
+
+  <table class="data-table">
+    <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Primary Function</td><td>Governance (deciding who should have what), lifecycle management (changes), and compliance (proving it was correct)</td></tr>
+      <tr><td class="label">Business Process</td><td>When HR says someone transferred departments, IGA automatically recalculates what access they should have</td></tr>
+      <tr><td class="label">Tools</td><td>OneIM, SailPoint, Saviynt, IBM ISIM</td></tr>
+      <tr><td class="label">Time Horizon</td><td>Long-term (days, weeks, months) - decisions based on business rules and lifecycle events</td></tr>
+      <tr><td class="label">Who Uses It</td><td>IT security, compliance teams, HR, internal audit, executive management</td></tr>
+      <tr><td class="label">Example</td><td>You transfer to a new department. A process automatically grants you access to the new department's systems, removes the old ones, logs everything for auditors</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How IAM and IGA Work Together</h2>
+  <div class="compare-grid">
+    <div class="compare-box">
+      <div class="compare-title blue">IAM (The Lock & Key)</div>
+      <ul class="checklist">
+        <li><strong>Question:</strong> Can you enter right now?</li>
+        <li><strong>Decision Speed:</strong> Milliseconds</li>
+        <li><strong>Action:</strong> Grant or deny login/access</li>
+        <li><strong>Example:</strong> Authentication server checks your password</li>
+      </ul>
+    </div>
+    <div class="compare-box">
+      <div class="compare-title green">IGA (The Decision Maker)</div>
+      <ul class="checklist">
+        <li><strong>Question:</strong> Should they have access?</li>
+        <li><strong>Decision Speed:</strong> Hours/days (overnight jobs)</li>
+        <li><strong>Action:</strong> Add/remove access based on business rules</li>
+        <li><strong>Example:</strong> Role-based access recalculation job runs nightly</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✅</div>
+    <div><strong>Key Relationship:</strong> IGA decides what access SHOULD exist. Then it tells IAM systems (like Active Directory) to set it up. IAM enforces those decisions at login time.</div>
+  </div>
+</div>
+
+<!-- SECTION: WHY ONEIM MATTERS -->
+<div id="why-oneim" class="section">
+  <div class="page-header">
+    <div class="badge">🟢 BEGINNER</div>
+    <h1>Why OneIM Matters</h1>
+    <p>In large organizations, managing access manually creates risk, waste, and compliance violations. OneIM solves these problems at enterprise scale.</p>
+  </div>
+
+  <h2>The Problem Without OneIM</h2>
+  <p><strong>Imagine you're the IT manager at a 1,000-person company without an IGA tool:</strong></p>
+
   <div class="card-grid">
     <div class="card red">
       <span class="card-icon">⚠️</span>
       <div class="card-title">Access Sprawl</div>
-      <div class="card-desc">Employees accumulate more access than needed over time. When they move departments, old access is rarely removed — violating least-privilege principle.</div>
+      <div class="card-desc"><strong>The Problem:</strong> Sarah started 10 years ago as a junior analyst. Over time, different departments gave her access to different systems. She got promoted 3 times. Nobody removed her old access. She now has access to systems she doesn't need.
+      <br><br><strong>Risk:</strong> If her account is hacked, attackers can access all those systems.</div>
     </div>
     <div class="card amber">
       <span class="card-icon">🔍</span>
       <div class="card-title">No Visibility</div>
-      <div class="card-desc">IT can't answer "who has access to what?" — a basic question that becomes impossible without centralized tracking across dozens of systems.</div>
+      <div class="card-desc"><strong>The Problem:</strong> Your CEO asks: "Who has access to financial records?" You check Active Directory... then three different databases... then several SaaS apps... then spreadsheets. You can't find a complete answer in under a week.
+      <br><br><strong>Risk:</strong> You can't control what you can't see. Auditors will fail you.</div>
     </div>
     <div class="card purple">
+      <span class="card-icon">⚙️</span>
+      <div class="card-title">Manual Processes</div>
+      <div class="card-desc"><strong>The Problem:</strong> When someone joins, you manually fill out forms, email requests to different departments, wait for approvals, manually create accounts in 5 different systems.
+      <br><br><strong>Risk:</strong> Takes 2-3 weeks. Mistakes happen. Some systems don't get configured. Costs $1,000+ per hire in IT time.</div>
+    </div>
+    <div class="card blue">
       <span class="card-icon">📋</span>
       <div class="card-title">Compliance Risk</div>
-      <div class="card-desc">Regulations like SOX, GDPR, HIPAA require demonstrable control over who accessed sensitive data. Manual systems cannot produce this audit trail reliably.</div>
+      <div class="card-desc"><strong>The Problem:</strong> Your company is audited for SOX/GDPR/HIPAA compliance. Auditors ask: "Can you prove who had access to sensitive data in January?" You have no central record.
+      <br><br><strong>Risk:</strong> Failed audit. Fines up to millions of dollars.</div>
+    </div>
+    <div class="card green">
+      <span class="card-icon">🕐</span>
+      <div class="card-title">Slow Offboarding</div>
+      <div class="card-desc"><strong>The Problem:</strong> John leaves the company. Theoretically you should disable his account that day. But you have 6 different systems. You remember 3 of them. The other 3... John still has access months later.
+      <br><br><strong>Risk:</strong> A disgruntled ex-employee can still access company data.</div>
+    </div>
+    <div class="card cyan">
+      <span class="card-icon">💼</span>
+      <div class="card-title">Manual Reviews</div>
+      <div class="card-desc"><strong>The Problem:</strong> Every year, you have to do access reviews. You send an email to 1,000 managers: "Verify that these 100 people should have system access." Response rate: 10%. Data quality: poor.
+      <br><br><strong>Risk:</strong> Inappropriate access goes undetected. Auditors reject your access certification process.</div>
     </div>
   </div>
-  <p><strong>IGA is the discipline that solves these problems</strong> — by providing a central platform to govern identities, manage access lifecycle, enforce policies, and produce compliance evidence.</p>
 
-  <h2>Key Terminology — Know These Cold</h2>
+  <h2>The Solution: OneIM</h2>
+  <p><strong>OneIM automates everything:</strong></p>
+
+  <div class="card-grid">
+    <div class="card green">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Automatic Provisioning</div>
+      <div class="card-desc">John joins the company. HR enters his record in their system. OneIM automatically creates accounts in AD, Exchange, Salesforce, Workday, and 3 other systems. Takes seconds instead of days.</div>
+    </div>
+    <div class="card cyan">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Automatic De-provisioning</div>
+      <div class="card-desc">Sarah leaves. OneIM automatically disables her account in ALL systems the same day. No forgotten systems. No lingering access.</div>
+    </div>
+    <div class="card blue">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Central Visibility</div>
+      <div class="card-desc">CEO asks: "Who has financial access?" OneIM answers in seconds. Complete audit trail showing exactly when it was granted and why.</div>
+    </div>
+    <div class="card amber">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Lifecycle Management</div>
+      <div class="card-desc">When Mike transfers from Sales to Support, OneIM automatically calculates: remove Sales roles, add Support roles. All audited and tracked.</div>
+    </div>
+    <div class="card purple">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Compliance Automation</div>
+      <div class="card-desc">Access reviews? OneIM sends them automatically to the right managers. Results are tracked. Compliance reports are generated with audit trails proving everything was correct.</div>
+    </div>
+    <div class="card red">
+      <span class="card-icon">✅</span>
+      <div class="card-title">Risk Mitigation</div>
+      <div class="card-desc">Segregation of Duties rules prevent dangerous access combinations (e.g., one person can't both approve AND receive payments). OneIM enforces this automatically.</div>
+    </div>
+  </div>
+
+  <h2>Real Business Impact</h2>
   <table class="data-table">
-    <thead><tr><th>Term</th><th>Definition</th><th>OneIM Relevance</th></tr></thead>
+    <thead><tr><th>Metric</th><th>Without IGA</th><th>With OneIM</th><th>Impact</th></tr></thead>
     <tbody>
-      <tr><td class="label">Identity</td><td>A digital representation of a real person in the system. Separate from their accounts.</td><td>The <code>Person</code> table in OneIM.</td></tr>
-      <tr><td class="label">Account</td><td>A specific login credential on a target system (e.g., an AD user account, an SAP user).</td><td><code>ADSAccount</code>, <code>SAPUser</code> tables.</td></tr>
-      <tr><td class="label">Entitlement</td><td>A specific permission or access right — a group membership, a role, a license, a permission set.</td><td>AD groups, Business Roles, IT Shop services.</td></tr>
-      <tr><td class="label">Provisioning</td><td>The process of creating or modifying access in a target system based on a business rule or request.</td><td>Job Server executing write-back tasks to AD, SAP.</td></tr>
-      <tr><td class="label">De-provisioning</td><td>Removing or disabling access when no longer needed (e.g., person leaves the company).</td><td>Triggered by HR-driven events, disables accounts and roles.</td></tr>
-      <tr><td class="label">Synchronization</td><td>Reading data FROM a target system INTO the IGA platform's database to maintain accurate records.</td><td>Synchronization Editor + sync projects.</td></tr>
-      <tr><td class="label">Attestation</td><td>A review process where resource owners or managers certify that access assignments are still correct and necessary.</td><td>Attestation module in OneIM.</td></tr>
-      <tr><td class="label">SoD</td><td>Segregation of Duties — a control that prevents one person from holding conflicting access rights (e.g., creating AND approving payments).</td><td>Compliance & Attestation section.</td></tr>
-      <tr><td class="label">RBAC</td><td>Role-Based Access Control — access is granted through roles, not directly to individuals. Easier to manage at scale.</td><td>Business Roles in OneIM are RBAC-based.</td></tr>
-      <tr><td class="label">ABAC</td><td>Attribute-Based Access Control — access decisions are based on attributes (department, location, title). More flexible than RBAC.</td><td>Dynamic roles and IT Shop conditions.</td></tr>
-      <tr><td class="label">Joiner Process</td><td>The workflow triggered when a new employee joins — creates accounts and assigns initial access based on job function.</td><td>HR import triggers Person creation.</td></tr>
-      <tr><td class="label">Mover Process</td><td>The workflow triggered when an employee changes roles — grants new access, removes old access that no longer applies.</td><td>Department/position changes trigger recalculation.</td></tr>
-      <tr><td class="label">Leaver Process</td><td>The workflow triggered when an employee leaves — disables all accounts and removes all entitlements in a controlled, auditable way.</td><td>Settings on Person object control timing.</td></tr>
-      <tr><td class="label">Least Privilege</td><td>A security principle: users should have exactly the access they need to do their job — nothing more.</td><td>Enforced through role-based assignments and SoD rules.</td></tr>
-      <tr><td class="label">Access Review</td><td>A periodic review of who has what access, to certify or revoke entitlements that are no longer appropriate.</td><td>Attestation campaigns in OneIM provide this.</td></tr>
+      <tr><td class="label">Time to Onboard New Employee</td><td>10-15 days</td><td>2 hours</td><td>7x faster, better first-day experience</td></tr>
+      <tr><td class="label">Cost Per Onboard</td><td>$500-1000</td><td>$50-100</td><td>80-90% savings</td></tr>
+      <tr><td class="label">Time to Detect Access Risk</td><td>Quarterly (audit)</td><td>Real-time</td><td>Detect problems immediately, not months later</td></tr>
+      <tr><td class="label">Compliance Audit Pass Rate</td><td>60-70%</td><td>95-99%</td><td>Fewer compliance violations, lower fines</td></tr>
+      <tr><td class="label">Security Incidents from Former Employees</td><td>15-20% of incidents</td><td>&lt;1%</td><td>Better security, fewer breaches</td></tr>
     </tbody>
   </table>
+</div>
 
-  <h2>IGA vs IAM — What's the Difference?</h2>
-  <div class="compare-grid">
-    <div class="compare-box">
-      <div class="compare-title blue">IAM — Identity & Access Management</div>
-      <ul class="checklist">
-        <li><strong>Focus:</strong> Authentication and authorization (who are you, what can you do <em>right now</em>)</li>
-        <li><strong>Tools:</strong> Active Directory, Azure AD, Okta, LDAP, SSO solutions</li>
-        <li><strong>Question it answers:</strong> "Can this user log in? Can they access this resource?"</li>
-        <li><strong>Time horizon:</strong> Real-time, transactional</li>
-        <li><strong>Primary users:</strong> IT infrastructure teams</li>
-        <li><strong>Examples:</strong> SSO, MFA, Active Directory</li>
-      </ul>
+<!-- SECTION: IGA FUNDAMENTALS -->
+<div id="iga-fundamentals" class="section">
+  <div class="page-header">
+    <div class="badge">🟡 INTERMEDIATE</div>
+    <h1>IGA Fundamentals — Core Concepts Explained</h1>
+    <p>The building blocks of identity governance. Understand these and you understand OneIM at its core.</p>
+  </div>
+
+  <h2>The 5 Core Concepts</h2>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon blue">👤</div>
+      <div class="concept-meta">
+        <div class="name">Identity (Person)</div>
+        <div class="role">The Human Behind the Accounts</div>
+      </div>
     </div>
-    <div class="compare-box">
-      <div class="compare-title green">IGA — Identity Governance & Administration</div>
-      <ul class="checklist">
-        <li><strong>Focus:</strong> Governance, lifecycle, compliance, visibility over access</li>
-        <li><strong>Tools:</strong> OneIM, SailPoint, Saviynt, IBM ISIM</li>
-        <li><strong>Question it answers:</strong> "Should this user have this access? Who approved it? Is it still needed?"</li>
-        <li><strong>Time horizon:</strong> Lifecycle-oriented, process-driven</li>
-        <li><strong>Primary users:</strong> IT security, audit, HR, compliance teams</li>
-        <li><strong>Examples:</strong> OneIM, access reviews, provisioning workflows</li>
-      </ul>
+    <div class="concept-body">
+      <p><strong>What is it?</strong> A digital representation of a real person in the system. ONE person, ONE identity record.</p>
+      <p><strong>Example:</strong> Sarah Chen is ONE identity. But she might have accounts in 10 different systems (AD, Exchange, Salesforce, Workday, SAP, etc.). Those are all tied to her ONE identity.</p>
+      <p><strong>In OneIM:</strong> Stored in the <code>Person</code> table with attributes like name, employee ID, department, manager, start date, end date.</p>
+      <p><strong>Why it matters:</strong> Without a central identity, you'd have to manage 10 separate records for 1 person. Chaos.</p>
     </div>
   </div>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon cyan">🔐</div>
+      <div class="concept-meta">
+        <div class="name">Account</div>
+        <div class="role">Login Credentials on a System</div>
+      </div>
+    </div>
+    <div class="concept-body">
+      <p><strong>What is it?</strong> A specific login credential on a target system. Many accounts can point to ONE identity.</p>
+      <p><strong>Example:</strong> Sarah's AD account is <code>schenuate</code>. Her SAP account is <code>SAP_CHEN</code>. Her Salesforce username is <code>sarah.chen@mycompany.com</code>. All three accounts represent ONE identity (Sarah).</p>
+      <p><strong>In OneIM:</strong> Account records track which system, what username, what status (active/disabled), account creation date, and link back to the Person identity.</p>
+      <p><strong>Why it matters:</strong> When OneIM knows all of Sarah's accounts, it can manage them all together. When she leaves, OneIM can disable all of them automatically.</p>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon green">📊</div>
+      <div class="concept-meta">
+        <div class="name">Entitlement</div>
+        <div class="role">A Permission or Access Right</div>
+      </div>
+    </div>
+    <div class="concept-body">
+      <p><strong>What is it?</strong> A specific permission, group membership, or role that grants access to something.</p>
+      <p><strong>Examples:</strong>
+        <ul style="margin-top: 8px;">
+          <li>• Group membership: <code>FinanceTeam</code> AD group (grants access to finance share drives)</li>
+          <li>• Role: <code>Manager</code> role in Salesforce (grants permission to approve deals)</li>
+          <li>• Permission: <code>Edit Reports</code> in analytics tool</li>
+          <li>• License: Office 365 license with Teams, OneDrive, SharePoint</li>
+        </ul>
+      </p>
+      <p><strong>In OneIM:</strong> Entitlements can be managed as Business Roles (OneIM's own role system) or synced from target systems (AD groups).</p>
+      <p><strong>Why it matters:</strong> IGA is about deciding WHO should have WHICH entitlements. OneIM enforces those decisions.</p>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon amber">➡️</div>
+      <div class="concept-meta">
+        <div class="name">Provisioning</div>
+        <div class="role">Granting Access</div>
+      </div>
+    </div>
+    <div class="concept-body">
+      <p><strong>What is it?</strong> The automatic or manual process of creating or modifying access in target systems based on a decision.</p>
+      <p><strong>Flow:</strong> OneIM decides → OneIM calls system → System creates/updates the access</p>
+      <p><strong>Example:</strong> OneIM decides Sarah should be in the <code>FinanceTeam</code> AD group. OneIM connects to AD and adds her account to that group. Done. No manual intervention.</p>
+      <p><strong>In OneIM:</strong> Job Server handles provisioning. It connects to each target system (AD, SAP, Salesforce, etc.) and makes changes.</p>
+      <p><strong>Why it matters:</strong> Manual provisioning is slow and error-prone. Automatic provisioning is fast and reliable.</p>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon red">❌</div>
+      <div class="concept-meta">
+        <div class="name">De-provisioning</div>
+        <div class="role">Removing Access</div>
+      </div>
+    </div>
+    <div class="concept-body">
+      <p><strong>What is it?</strong> Removing access when it's no longer needed.</p>
+      <p><strong>When it happens:</strong>
+        <ul style="margin-top: 8px;">
+          <li>• Employee leaves (immediate or future date)</li>
+          <li>• Employee transfers departments (old access removed)</li>
+          <li>• Access review (manager certifies this person doesn't need this anymore)</li>
+          <li>• Policy change (SoD rules say this role conflicts with that role)</li>
+        </ul>
+      </p>
+      <p><strong>Example:</strong> Sarah leaves the company on Friday. OneIM automatically disables her AD account, removes her from all Office 365 groups, disables her SAP access, marks her in Salesforce as inactive. All automatic. All audited.</p>
+      <p><strong>In OneIM:</strong> Triggered by Person status changes, role removals, or scheduled jobs.</p>
+      <p><strong>Why it matters:</strong> If access isn't removed, ex-employees can still access company data. Security nightmare.</p>
+    </div>
+  </div>
+
+  <h2>Putting It Together</h2>
   <div class="callout info">
-    <div class="callout-icon">💡</div>
-    <div><strong>Key insight:</strong> OneIM is IGA, but it integrates WITH IAM systems (like Active Directory). OneIM reads from AD (synchronization) and writes back to AD (provisioning) — AD is a target system for OneIM.</div>
+    <div class="callout-icon">🔄</div>
+    <div>
+      <strong>The IGA Cycle:</strong>
+      <br><br>
+      1. <strong>Identity Created:</strong> Sarah joins company. HR system creates a record. OneIM reads it and creates a Person object.
+      <br><br>
+      2. <strong>Entitlements Assigned:</strong> Based on her role (Financial Analyst), OneIM calculates: she should have access to Finance department resources, Financial reports role, and Accounting systems.
+      <br><br>
+      3. <strong>Provisioning Happens:</strong> OneIM automatically creates/updates accounts in AD, SAP, Workday, Finance portal. Minutes, not days.
+      <br><br>
+      4. <strong>Sarah Works:</strong> For 3 years, OneIM tracks all her access. Managers certify it's still needed during annual reviews.
+      <br><br>
+      5. <strong>Transfer Happens:</strong> Sarah moves to Operations. OneIM recalculates: remove Finance roles, add Operations roles. Automatic provisioning/de-provisioning happens.
+      <br><br>
+      6. <strong>Leaver Process:</strong> Sarah retires. OneIM marks her as inactive. All accounts disabled across all systems. Audit trail created proving it was all correct.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: JOINER-MOVER-LEAVER LIFECYCLE -->
+<div id="jml-lifecycle" class="section">
+  <div class="page-header">
+    <div class="badge">🟡 INTERMEDIATE</div>
+    <h1>The Identity Lifecycle: Joiner-Mover-Leaver</h1>
+    <p>Every person goes through three stages in their employment. OneIM automates the process at each stage.</p>
   </div>
 
-  <h2>The Identity Lifecycle — Joiner, Mover, Leaver</h2>
-  <p>The most important concept in IGA is the <strong>identity lifecycle</strong>. Every identity goes through these stages:</p>
+  <h2>The Three Stages</h2>
+
   <ol class="step-list">
     <li class="step-item">
       <div class="step-num">J</div>
       <div class="step-body">
-        <div class="step-title">Joiner — New Employee Arrives</div>
-        <div class="step-desc">HR creates a record in the HRIS. OneIM reads this (via HR connector or CSV import). A Person record is created. Based on the person's department, job title, and location, OneIM automatically calculates which roles they should have. Accounts are provisioned to all connected systems.</div>
+        <div class="step-title">JOINER — Employee Starts</div>
+        <div class="step-desc">
+          <strong>The Scenario:</strong> Your company hired Sarah Chen. Her first day is Monday. 
+          <br><br>
+          <strong>Without OneIM (Manual Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>Friday before: IT manager gets email from HR saying new hire</li>
+            <li>IT manually creates AD account, Exchange mailbox, adds to groups</li>
+            <li>Calls SAP team to create SAP user (takes 2-3 days)</li>
+            <li>Calls Salesforce admin to set up access (another day)</li>
+            <li>Sets up phone, laptop, building access manually</li>
+            <li>Total time: 5-10 days. Sarah's first week is wasted waiting for access</li>
+          </ul>
+          <br>
+          <strong>With OneIM (Automated Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>HR enters Sarah into HRIS system Friday morning</li>
+            <li>OneIM picks up the new hire event automatically</li>
+            <li>OneIM reads Sarah's role: "Financial Analyst"</li>
+            <li>OneIM calculates: she needs Finance department access, Financial role, AD groups, SAP module, Salesforce access</li>
+            <li>Within 15 minutes, OneIM provisions everything across all systems</li>
+            <li>Sarah logs in Monday morning. Everything is ready</li>
+            <li>Total time: 15 minutes automatic. Sarah is productive day one</li>
+          </ul>
+          <br>
+          <strong>What OneIM Actually Does:</strong>
+          <ol style="margin-top: 8px;">
+            <li>1. Creates Person record with Sarah's info</li>
+            <li>2. Assigns her Business Role based on job title</li>
+            <li>3. Provisioning job runs: creates AD account, mailbox, SAP user, Salesforce user</li>
+            <li>4. Adds her to appropriate AD groups (Finance, Users, Department-specific)</li>
+            <li>5. Sets manager, cost center, organizational hierarchy</li>
+            <li>6. Logs everything: who, what, when, why (for audits)</li>
+          </ol>
+        </div>
       </div>
     </li>
+
     <li class="step-item">
       <div class="step-num">M</div>
       <div class="step-body">
-        <div class="step-title">Mover — Employee Changes Role</div>
-        <div class="step-desc">HR updates the employee's department or job title. OneIM detects the change. New role entitlements are calculated and provisioned. Old entitlements that don't apply to the new role are revoked — all automatically and with a full audit trail.</div>
+        <div class="step-title">MOVER — Employee Transfers/Promotes</div>
+        <div class="step-desc">
+          <strong>The Scenario:</strong> After 2 years, Sarah gets promoted from Financial Analyst to Finance Manager.
+          <br><br>
+          <strong>Without OneIM (Manual Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>HR sends email to IT: "Sarah transferred to Manager role"</li>
+            <li>IT manually adds her to Manager groups in AD</li>
+            <li>IT manually removes her from Analyst groups (usually forgotten)</li>
+            <li>IT calls SAP team: "Give her manager access" (2-3 days)</li>
+            <li>Salesforce: "Manager role needed" (another day)</li>
+            <li>Nobody checks if this violates SoD rules</li>
+            <li>Result: Sarah has both old AND new access (sprawl) for weeks or months</li>
+          </ul>
+          <br>
+          <strong>With OneIM (Automated Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>HR updates Sarah's role in HRIS: "Finance Manager"</li>
+            <li>OneIM detects the change automatically</li>
+            <li>OneIM recalculates entitlements: remove Analyst roles, add Manager roles</li>
+            <li>OneIM checks SoD rules: does Manager + any other role create conflicts? (e.g., can't approve AND receive payments)</li>
+            <li>Within 15 minutes, provisioning happens: removes old groups, adds new groups, updates SAP and Salesforce</li>
+            <li>Audit trail shows exactly what was removed and when</li>
+          </ul>
+          <br>
+          <strong>What OneIM Actually Does:</strong>
+          <ol style="margin-top: 8px;">
+            <li>1. Detects role change via HR integration</li>
+            <li>2. Retrieves Business Role definition for "Finance Manager"</li>
+            <li>3. Compares current entitlements vs. new entitlements</li>
+            <li>4. Plans: These groups to ADD, These groups to REMOVE</li>
+            <li>5. Checks SoD rules: are there policy violations?</li>
+            <li>6. De-provisions old access from all systems</li>
+            <li>7. Provisions new access to all systems</li>
+            <li>8. Updates Person record, creates audit log</li>
+          </ol>
+        </div>
       </div>
     </li>
+
     <li class="step-item">
       <div class="step-num">L</div>
       <div class="step-body">
-        <div class="step-title">Leaver — Employee Departs</div>
-        <div class="step-desc">HR marks the employee as terminated. OneIM immediately — or on the effective date — disables all accounts across all connected target systems, removes all group memberships, and marks the Person as inactive. No more manual "can you remove this user from everything?" emails.</div>
+        <div class="step-title">LEAVER — Employee Departs</div>
+        <div class="step-desc">
+          <strong>The Scenario:</strong> After 5 years, Sarah gets a job offer elsewhere and leaves the company. Her last day is Friday.
+          <br><br>
+          <strong>Without OneIM (Manual Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>HR notifies IT on Thursday: "Sarah leaves Friday"</li>
+            <li>IT manager tries to remember all systems (AD, Exchange, Salesforce, SAP, Workday, ...)</li>
+            <li>Manually disables AD account Friday afternoon</li>
+            <li>Exchange mailbox: forgotten (IT manager went home)</li>
+            <li>Salesforce: someone forgets to disable</li>
+            <li>SAP access: disabled Monday (another team)</li>
+            <li>VPN access: nobody remembers until IT audit 6 months later</li>
+            <li>Result: Sarah still has access to multiple systems 6 months after leaving</li>
+          </ul>
+          <br>
+          <strong>With OneIM (Automated Process):</strong>
+          <ul style="margin-top: 8px;">
+            <li>HR marks Sarah as "Leaver" with end date Friday</li>
+            <li>OneIM is configured to de-provision on end date</li>
+            <li>Friday morning (end date), OneIM checks: Sarah is marked as terminated</li>
+            <li>OneIM immediately de-provisions across ALL systems simultaneously</li>
+            <li>Within 5 minutes: AD account disabled, Exchange deleted, Salesforce marked inactive, SAP locked, VPN revoked, etc.</li>
+            <li>Complete audit trail showing exactly when access was removed from each system</li>
+          </ul>
+          <br>
+          <strong>What OneIM Actually Does:</strong>
+          <ol style="margin-top: 8px;">
+            <li>1. Detects end-of-employment date via HR integration</li>
+            <li>2. On end date (or configured offboarding date), initiates de-provisioning</li>
+            <li>3. De-provisioning job connects to ALL target systems</li>
+            <li>4. Removes/disables Sarah from: AD groups, AD account status, Exchange, Salesforce, SAP, Workday, VPN, etc.</li>
+            <li>5. Updates Person status to "Inactive"</li>
+            <li>6. Creates complete audit trail proving all access was removed</li>
+            <li>7. Sends notification to managers/compliance team</li>
+          </ol>
+        </div>
       </div>
     </li>
   </ol>
+
+  <h2>Configuration Options</h2>
+  <table class="data-table">
+    <thead><tr><th>Setting</th><th>What It Controls</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Joiner Trigger</td><td>What event creates a Person in OneIM?</td><td>HR system import, manual entry, API call</td></tr>
+      <tr><td class="label">Automatic Assignment</td><td>Should roles be assigned automatically based on rules?</td><td>Hire Date + Department = Auto-assign Finance role</td></tr>
+      <tr><td class="label">Immediate or Delayed</td><td>Should provisioning happen immediately or on first day?</td><td>Immediate (prepare on offer), Delayed (day before start)</td></tr>
+      <tr><td class="label">Mover Detection</td><td>What triggers a mover process?</td><td>Department change, Manager change, Job title change</td></tr>
+      <tr><td class="label">De-provisioning Timing</td><td>When should access be removed?</td><td>Immediate (on end date), Delayed (after notice period)</td></tr>
+      <tr><td class="label">Data Retention</td><td>Keep historical records after person leaves?</td><td>Yes (7 years for audit), No (after 90 days)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <div class="callout-icon">⚠️</div>
+    <div><strong>Important:</strong> OneIM is typically configured to handle the MAJORITY of JML processes automatically, but some decisions still require human approval (e.g., a manager might need to approve Sarah's new role before it's provisioned).</div>
+  </div>
 </div>
 
-<!-- ══════════ SECTION: WHAT IS ONEIM ══════════ -->
-<div id="oneim-intro" class="section">
+<!-- SECTION: RBAC & ACCESS CONTROL -->
+<div id="rbac-concepts" class="section">
   <div class="page-header">
-    <div class="badge green">CHAPTER 2 — PLATFORM</div>
-    <h1>What is One Identity Manager?</h1>
-    <p>One Identity Manager (OneIM) is Quest Software's enterprise IGA platform. It is one of the leading IGA solutions in the market alongside SailPoint IdentityIQ and Saviynt.</p>
+    <div class="badge">🟡 INTERMEDIATE</div>
+    <h1>RBAC, Business Roles & Access Control</h1>
+    <p>How OneIM decides who gets what access. The core concept is called Role-Based Access Control (RBAC), and it's simpler than you think.</p>
   </div>
-  <div class="tier-indicator tier-beginner">🟢 Beginner — Essential Foundation</div>
 
-  <h2>Platform Overview</h2>
-  <p>OneIM is a <strong>modular, database-centric IGA platform</strong> that manages identity lifecycle, automated provisioning, access request workflows, compliance, and governance across the enterprise.</p>
-  <p>Unlike cloud-only SaaS IGA tools, OneIM runs in your infrastructure — giving you full control, deep customizability, and the ability to handle extremely complex enterprise requirements.</p>
+  <h2>RBAC — Role-Based Access Control</h2>
+  <p><strong>Core Idea:</strong> Instead of managing access for individual people, you manage access for ROLES. Then assign people to roles.</p>
 
-  <div class="card-grid">
-    <div class="card blue">
-      <span class="card-icon">🔐</span>
-      <div class="card-title">Identity Governance</div>
-      <div class="card-desc">Manage who has access to what. Enforce least-privilege. Run access certifications and attestation campaigns. Satisfy audit requirements.</div>
+  <h3>Why RBAC?</h3>
+  <div class="compare-grid">
+    <div class="compare-box">
+      <div class="compare-title red">❌ Bad Way: Individual Access</div>
+      <ul class="checklist">
+        <li>Sarah → Finance group</li>
+        <li>Sarah → Reports role</li>
+        <li>Sarah → Accounting module</li>
+        <li>Sarah → Cost center 12345</li>
+        <li>...(repeated for each person)</li>
+        <li><strong>Problem:</strong> 1000 people = 5000+ individual decisions. Impossible to manage.</li>
+      </ul>
     </div>
-    <div class="card cyan">
-      <span class="card-icon">⚡</span>
-      <div class="card-title">Automated Provisioning</div>
-      <div class="card-desc">Automatically create, modify, or disable accounts in AD, Exchange, SAP, LDAP, Azure AD, cloud apps — driven by HR data and business rules.</div>
-    </div>
-    <div class="card green">
-      <span class="card-icon">🛒</span>
-      <div class="card-title">IT Shop / Self-Service</div>
-      <div class="card-desc">Employees request access through a web portal. Approvals route automatically. Requests are tracked, auditable, and can be revoked on schedule.</div>
-    </div>
-    <div class="card amber">
-      <span class="card-icon">📋</span>
-      <div class="card-title">Compliance & Audit</div>
-      <div class="card-desc">Segregation of Duties rules, attestation campaigns, audit reports for SOX, GDPR, HIPAA, ISO 27001, and other regulatory frameworks.</div>
-    </div>
-    <div class="card purple">
-      <span class="card-icon">🔗</span>
-      <div class="card-title">200+ Connectors</div>
-      <div class="card-desc">Active Directory, Azure AD, Exchange, SAP, LDAP, Google Workspace, ServiceNow, SCIM, Oracle, Notes/Domino, and many more.</div>
-    </div>
-    <div class="card red">
-      <span class="card-icon">🏗️</span>
-      <div class="card-title">Fully Customizable</div>
-      <div class="card-desc">VB.NET scripting, custom business logic, schema extensions, workflow customization — bend OneIM to your exact business requirements.</div>
+    <div class="compare-box">
+      <div class="compare-title green">✅ Good Way: Role-Based Access</div>
+      <ul class="checklist">
+        <li><strong>Define Financial Analyst Role ONCE:</strong></li>
+        <li>→ Finance group</li>
+        <li>→ Reports role</li>
+        <li>→ Accounting module</li>
+        <li>→ Cost center 12345</li>
+        <li><strong>Then assign:</strong></li>
+        <li>Sarah → Financial Analyst role</li>
+        <li>Mike → Financial Analyst role</li>
+        <li>Jessica → Financial Analyst role</li>
+        <li><strong>Benefit:</strong> Define once, reuse 100 times. Change once, affects all 100 people.</li>
+      </ul>
     </div>
   </div>
+
+  <h2>Business Roles in OneIM</h2>
+  <p><strong>OneIM has a concept called "Business Roles"</strong> (also called "Dynamic Roles" in some systems). These are OneIM's way of implementing RBAC.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">💡</div>
+    <div>
+      <strong>Business Role = A template of entitlements</strong>
+      <br><br>
+      Define a role once. Assign it to people. OneIM calculates what systems they should access. Automatically provisions that access.
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-header">
+      <div class="concept-icon blue">📋</div>
+      <div class="concept-meta">
+        <div class="name">Financial Analyst Role</div>
+        <div class="role">OneIM Business Role Example</div>
+      </div>
+    </div>
+    <div class="concept-body">
+      <p><strong>Definition:</strong></p>
+      <div style="background: var(--bg3); padding: 12px; border-radius: 6px; margin-top: 8px;">
+        Role Name: Financial Analyst<br>
+        Description: Full access to finance systems for staff-level analysts<br><br>
+        Entitlements:<br>
+        &nbsp;&nbsp;• AD Group: Finance_Users<br>
+        &nbsp;&nbsp;• AD Group: Finance_Reports<br>
+        &nbsp;&nbsp;• SAP Role: FIN_ANALYST<br>
+        &nbsp;&nbsp;• SAP Role: GL_ACCESS<br>
+        &nbsp;&nbsp;• Salesforce Permission: Financial Data Access<br>
+        &nbsp;&nbsp;• Workday Role: Finance (read-only)<br>
+      </div>
+      <p style="margin-top: 12px;"><strong>What Happens:</strong></p>
+      <ul style="margin-top: 8px;">
+        <li>• Assign Sarah to this role → OneIM provisions ALL these entitlements</li>
+        <li>• Assign Mike to this role → OneIM provisions ALL these entitlements</li>
+        <li>• Change the role definition (add: Cost Center Budget Access) → ALL people with this role immediately get the new entitlement</li>
+        <li>• Remove Sarah from this role → OneIM de-provisions ALL these entitlements</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Role Hierarchy</h2>
+  <p><strong>Roles can be organized hierarchically</strong> (parent-child relationships) to avoid duplicating common entitlements.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">🌳</div>
+    <div>
+      <strong>Example Role Hierarchy:</strong>
+      <div style="background: var(--bg3); padding: 12px; border-radius: 6px; margin-top: 8px; font-family: monospace; font-size: 13px;">
+        Finance Employee (Base)<br>
+        ├─ AD Group: Company_Users<br>
+        ├─ AD Group: Finance<br>
+        ├─ Office 365 License<br>
+        │<br>
+        ├── Financial Analyst (extends Finance Employee)<br>
+        │   ├─ AD Group: Finance_Reports<br>
+        │   ├─ SAP Role: FIN_ANALYST<br>
+        │   └─ Salesforce: Financial Data<br>
+        │<br>
+        ├── Finance Manager (extends Finance Employee)<br>
+        │   ├─ AD Group: Finance_Managers<br>
+        │   ├─ SAP Role: FIN_MANAGER<br>
+        │   ├─ Approval permission for expenses<br>
+        │   └─ Workday: Finance Manager Dashboard<br>
+        │<br>
+        └── Finance Director (extends Finance Manager)<br>
+            ├─ AD Group: Finance_Leadership<br>
+            ├─ SAP Role: FIN_DIRECTOR<br>
+            ├─ Budget approval authority<br>
+            └─ Executive dashboards<br>
+      </div>
+      <p style="margin-top: 12px;">Each role inherits from parent, so you don't duplicate "Finance Employee" entitlements.</p>
+    </div>
+  </div>
+
+  <h2>How Roles Are Assigned</h2>
+  <table class="data-table">
+    <thead><tr><th>Method</th><th>How It Works</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Automatic (Rule-Based)</td><td>OneIM calculates roles based on person attributes. Rules run automatically.</td><td>Department=="Finance" AND JobTitle contains "Analyst" → Assign Financial Analyst role</td></tr>
+      <tr><td class="label">Manual Assignment</td><td>Administrator or manager explicitly assigns a role to a person.</td><td>HR manager clicks "Assign Financial Analyst role to Sarah"</td></tr>
+      <tr><td class="label">Template/Onboarding</td><td>When a new person joins with a specific role, a template is used.</td><td>New hire with job code "FA" automatically gets Financial Analyst role on day 1</td></tr>
+      <tr><td class="label">Self-Service Request</td><td>User requests access, manager approves, system assigns role.</td><td>Sarah: "I need access to Audit Reports". Manager approves. Role assigned.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Role Assignment Rules</h2>
+  <p><strong>OneIM can calculate role assignments based on IF/THEN rules:</strong></p>
+
+  <div class="callout info">
+    <div class="callout-icon">⚙️</div>
+    <div>
+      <strong>Example Rule Set for Financial Analyst Role:</strong>
+      <br><br>
+      IF (Department = "Finance" OR Department = "Accounting")<br>
+      AND (JobTitle = "Analyst" OR JobTitle = "Senior Analyst")<br>
+      AND EmploymentStatus = "Active"<br>
+      THEN Assign "Financial Analyst" role<br>
+      <br>
+      <strong>What this means:</strong> Everyone in Finance/Accounting departments with Analyst job titles automatically gets the Financial Analyst role. If they leave or change departments, the role is automatically removed.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: RESOURCES -->
+<div id="resources" class="section">
+  <div class="page-header">
+    <div class="badge">📚 REFERENCES</div>
+    <h1>Additional Resources & References</h1>
+    <p>Links to official documentation, training materials, and external resources to deepen your learning.</p>
+  </div>
+
+  <h2>Official Quest Software Resources</h2>
+  <ul class="checklist">
+    <li><strong>Quest One Identity Manager Documentation:</strong> <code>https://quest.com/products/identity-management/</code></li>
+    <li><strong>OneIM Online Help:</strong> <code>https://docs.oneidentity.com/</code></li>
+    <li><strong>Quest Learning Network:</strong> <code>https://learning.quest.com/</code> - Official training portal</li>
+    <li><strong>OneIM User Group:</strong> <code>https://community.quest.com/</code> - Community forums</li>
+  </ul>
+
+  <h2>Industry Standards & Certifications</h2>
+  <ul class="checklist">
+    <li><strong>GIAC Certified Identity and Access Administrator (GIAA)</strong> - Professional certification in IAM/IGA</li>
+    <li><strong>Certified Authorization Professional (CAP)</strong> - Access control certification</li>
+    <li><strong>ISC² Certified Information Systems Security Professional (CISSP)</strong> - Includes identity governance track</li>
+  </ul>
+
+  <h2>Key Regulations & Standards</h2>
+  <ul class="checklist">
+    <li><strong>SOX (Sarbanes-Oxley):</strong> Financial companies must have access controls and audit trails</li>
+    <li><strong>GDPR (EU):</strong> Must control who accesses personal data</li>
+    <li><strong>HIPAA (US Healthcare):</strong> Must control who accesses medical records</li>
+    <li><strong>ISO 27001:</strong> International information security standard</li>
+    <li><strong>NIST SP 800-171:</strong> US DoD cybersecurity requirements</li>
+  </ul>
+
+  <h2>Competing Products (Comparison)</h2>
+  <table class="data-table">
+    <thead><tr><th>Product</th><th>Vendor</th><th>Type</th><th>Best For</th></tr></thead>
+    <tbody>
+      <tr><td class="label">OneIM</td><td>Quest</td><td>On-Premise IGA</td><td>Complex enterprises with heterogeneous systems</td></tr>
+      <tr><td class="label">SailPoint IdentityIQ</td><td>SailPoint</td><td>Cloud/On-Prem IGA</td><td>Large enterprises, very flexible</td></tr>
+      <tr><td class="label">Saviynt</td><td>Saviynt</td><td>Cloud IGA</td><td>Modern cloud-first companies</td></tr>
+      <tr><td class="label">IBM ISIM</td><td>IBM</td><td>On-Premise IGA</td><td>IBM-centric environments</td></tr>
+      <tr><td class="label">Okta Identity Governance</td><td>Okta</td><td>Cloud IGA</td><td>Cloud and SaaS-heavy companies</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION: GLOSSARY -->
+<div id="glossary" class="section">
+  <div class="page-header">
+    <div class="badge">📖 REFERENCE</div>
+    <h1>Complete Glossary of Terms</h1>
+    <p>Definitions of every important term in identity management and OneIM. Use this section whenever you encounter unfamiliar terminology.</p>
+  </div>
+
+  <h2>Core Concepts</h2>
+  <table class="data-table">
+    <thead><tr><th>Term</th><th>Definition</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Identity</td><td>Digital representation of a person. ONE identity can have MANY accounts.</td><td>Sarah Chen = 1 identity, but has AD account, SAP account, Salesforce account, etc.</td></tr>
+      <tr><td class="label">Account</td><td>A login credential on a specific system. Many accounts can represent one identity.</td><td>Sarah's AD account: "schenuate". Sarah's SAP account: "SAP_CHEN".</td></tr>
+      <tr><td class="label">Entitlement</td><td>A permission or access right. Grants user ability to do something.</td><td>Group membership (Finance_Team), role (Manager), permission (Approve Reports)</td></tr>
+      <tr><td class="label">Provisioning</td><td>Granting access. Creating or modifying accounts and entitlements.</td><td>New hire joins → OneIM creates their AD account (provisioning)</td></tr>
+      <tr><td class="label">De-provisioning</td><td>Removing access. Disabling accounts and removing entitlements.</td><td>Employee leaves → OneIM disables their AD account (de-provisioning)</td></tr>
+      <tr><td class="label">Business Role</td><td>OneIM's way of grouping related entitlements together. Template for access.</td><td>Financial Analyst role = Finance group + Finance system access + Reports access</td></tr>
+      <tr><td class="label">Synchronization</td><td>Reading data FROM external systems INTO OneIM. Keeps OneIM synchronized with source systems.</td><td>OneIM reads employee list from HR system every night</td></tr>
+    </tbody>
+  </table>
+
+  <h2>IGA & Access Control Terms</h2>
+  <table class="data-table">
+    <thead><tr><th>Term</th><th>Definition</th><th>Why It Matters</th></tr></thead>
+    <tbody>
+      <tr><td class="label">RBAC (Role-Based Access Control)</td><td>Granting access based on ROLES rather than individual decisions.</td><td>Scales to 10,000+ users without manual management</td></tr>
+      <tr><td class="label">ABAC (Attribute-Based Access Control)</td><td>Granting access based on ATTRIBUTES (department, location, title, etc.)</td><td>More flexible than RBAC for complex business rules</td></tr>
+      <tr><td class="label">Least Privilege</td><td>Users have EXACTLY the access they need to do their job, nothing more.</td><td>Reduces security risk if account is compromised</td></tr>
+      <tr><td class="label">SoD (Segregation of Duties)</td><td>Rule that prevents one person from having conflicting access (e.g., approving AND receiving payments).</td><td>Prevents fraud. Required for compliance (SOX, HIPAA)</td></tr>
+      <tr><td class="label">Attestation</td><td>Review process where managers certify that people's access is still appropriate.</td><td>Compliance requirement. Detects inappropriate access.</td></tr>
+      <tr><td class="label">Access Certification</td><td>Formal audit where we ask: "Does this person still need this access?"</td><td>Annual or quarterly review for compliance</td></tr>
+      <tr><td class="label">Access Review</td><td>Periodic examination of who has what access and whether it's appropriate.</td><td>Finds and fixes access creep/sprawl</td></tr>
+    </tbody>
+  </table>
+
+  <h2>OneIM-Specific Terms</h2>
+  <table class="data-table">
+    <thead><tr><th>Term</th><th>Definition</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Connector</td><td>OneIM component that connects to a target system (AD, SAP, Salesforce, etc.). Handles provisioning.</td><td>Active Directory Connector, SAP Connector, Salesforce Connector</td></tr>
+      <tr><td class="label">Job Server</td><td>OneIM's execution engine. Runs sync jobs, provisioning jobs, scheduled tasks.</td><td>Job Server runs "Provision User Access" job every night</td></tr>
+      <tr><td class="label">Database Queue (DBQueue)</td><td>OneIM's queue system. Stores tasks to be processed by Job Server.</td><td>When OneIM decides to provision a user, it puts a task in DBQueue. Job Server picks it up.</td></tr>
+      <tr><td class="label">Person Object</td><td>OneIM's record of a user identity. Stores name, employee ID, department, etc.</td><td>Person "Sarah Chen" has attributes: Department=Finance, JobTitle=Analyst, ManagerID=12345</td></tr>
+      <tr><td class="label">Business Process</td><td>Automated workflow in OneIM that handles complex logic (approvals, escalations, notifications).</td><td>Request approval workflow: Employee → Manager → HR Director (if >$5000)</td></tr>
+      <tr><td class="label">One Identity Security Console</td><td>OneIM's main admin interface. Where administrators manage everything.</td><td>Admin logs in here to create users, assign roles, manage workflows</td></tr>
+      <tr><td class="label">One Identity Portal</td><td>Self-service web portal for users. Request access, view own access, update profile.</td><td>Users login here to request access to new systems</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Business & Compliance Terms</h2>
+  <table class="data-table">
+    <thead><tr><th>Term</th><th>Definition</th><th>Compliance Standard</th></tr></thead>
+    <tbody>
+      <tr><td class="label">Joiner Process</td><td>Automated workflow when a new employee joins.</td><td>All standards</td></tr>
+      <tr><td class="label">Mover Process</td><td>Automated workflow when an employee transfers/promotes.</td><td>All standards</td></tr>
+      <tr><td class="label">Leaver Process</td><td>Automated workflow when an employee departs.</td><td>All standards</td></tr>
+      <tr><td class="label">Audit Trail</td><td>Complete log of who did what, when, and why. Proof of compliance.</td><td>SOX, GDPR, HIPAA</td></tr>
+      <tr><td class="label">Access Control Policy</td><td>Documentation of HOW access is granted/removed/reviewed in the organization.</td><td>SOX, GDPR, ISO 27001</td></tr>
+      <tr><td class="label">Compliance Report</td><td>Automated report showing who has what access and whether it's compliant.</td><td>SOX, GDPR, HIPAA</td></tr>
+    </tbody>
+  </table>
 </div>
 
 </div></div>
 
-<script src="script.js"></script>
+<script src="src/js/main.js"></script>
 </body>
 </html>
