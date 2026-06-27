@@ -255,15 +255,24 @@ const UI = {
     this._jumpTo(0);
   },
 
-  _jumpTo(idx) {
+_jumpTo(idx) {
     this._matchEls.forEach(el => el.classList.remove('sh-active'));
     if (!this._matchEls.length) return;
     const el  = this._matchEls[idx];
     const sec = el.closest('.section');
-    if (sec && !sec.classList.contains('active')) window.show(sec.id);
-    el.classList.add('sh-active');
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    document.getElementById('search-count').textContent = `${idx + 1} of ${this._matchEls.length}`;
+
+    const activate = () => {
+      el.classList.add('sh-active');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('search-count').textContent = `${idx + 1} of ${this._matchEls.length}`;
+    };
+
+    if (sec && !sec.classList.contains('active')) {
+      window.show(sec.id);
+      setTimeout(activate, 120); // wait for section switch + scroll reset
+    } else {
+      activate();
+    }
   },
 
   nextMatch() {
