@@ -15,6 +15,7 @@ const UI = {
     this.initBackTop();
     this.setupKeyboardNav();
     this.restoreQuiz();
+    this.initSearch();
   },
 
   // ── Sidebar search / filter ──────────────────────────────
