@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════
-   LAYOUT: Sidebar, Main Content, Grid System
+   LAYOUT: Sidebar, Search, Main Content, Sections
    ══════════════════════════════════════════════════════════ */
 
 /* ── SIDEBAR ── */
@@ -15,7 +15,6 @@
   overflow-y: auto;
   z-index: 100;
 }
-
 #sidebar::-webkit-scrollbar { width: 4px; }
 #sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
@@ -24,14 +23,12 @@
   border-bottom: 1px solid var(--border);
   background: linear-gradient(135deg, rgba(74,158,255,0.07) 0%, transparent 100%);
 }
-
 .sidebar-logo .brand {
   font-size: 20px;
   font-weight: 800;
   color: var(--accent);
   letter-spacing: -0.5px;
 }
-
 .sidebar-logo .sub {
   font-size: 10px;
   color: var(--text3);
@@ -40,7 +37,6 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
 .progress-ring {
   display: flex;
   align-items: center;
@@ -49,7 +45,6 @@
   font-size: 11px;
   color: var(--text3);
 }
-
 .progress-bar {
   flex: 1;
   height: 3px;
@@ -57,7 +52,6 @@
   border-radius: 2px;
   overflow: hidden;
 }
-
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--blue), var(--cyan));
@@ -65,6 +59,25 @@
   width: 0%;
   transition: width 0.3s;
 }
+
+/* search box (NEW) */
+.sidebar-search {
+  padding: 10px 16px 4px;
+}
+.sidebar-search input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.sidebar-search input:focus { border-color: var(--blue-light); }
+.sidebar-search input::placeholder { color: var(--text3); }
 
 .sidebar-section {
   padding: 14px 16px 4px;
@@ -77,7 +90,6 @@
   align-items: center;
   gap: 6px;
 }
-
 .sidebar-section::after {
   content: '';
   flex: 1;
@@ -86,7 +98,6 @@
 }
 
 .sidebar-nav { list-style: none; padding: 2px 8px 6px; }
-
 .sidebar-nav li a {
   display: flex;
   align-items: center;
@@ -99,17 +110,24 @@
   transition: all 0.15s;
   position: relative;
 }
-
 .sidebar-nav li a:hover { background: var(--bg3); color: var(--text); }
-
 .sidebar-nav li a.active {
   background: linear-gradient(90deg, var(--blue-dim), rgba(13,45,94,0.5));
   color: var(--blue-light);
   border-left: 2px solid var(--blue-light);
 }
-
+/* visited checkmark (NEW) */
+.sidebar-nav li a.done .nav-check { opacity: 1; }
+.nav-check {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.sidebar-nav li a.done .nav-badge + .nav-check,
+.sidebar-nav li a.done .nav-check { opacity: 1; }
 .nav-icon { font-size: 14px; width: 18px; text-align: center; }
-
 .nav-badge {
   margin-left: auto;
   font-size: 9px;
@@ -120,9 +138,15 @@
   border-radius: 10px;
   border: 1px solid rgba(74,158,255,0.3);
 }
-
 .nav-badge.green { background: var(--green-dim); color: var(--green); border-color: rgba(0,214,143,0.3); }
 .nav-badge.amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(255,167,38,0.3); }
+/* when a badge AND check both present, push check after badge */
+.sidebar-nav li a.done .nav-badge { margin-left: auto; }
+.sidebar-nav li a.done .nav-badge ~ .nav-check { margin-left: 6px; }
+
+/* hidden nav item during search (NEW) */
+.sidebar-nav li.hide-search { display: none; }
+.sidebar-section.hide-search { display: none; }
 
 /* ── MAIN CONTENT ── */
 #main { margin-left: var(--sidebar-w); flex: 1; position: relative; z-index: 1; }
@@ -130,8 +154,4 @@
 
 .section { display: none; animation: fadeIn 0.2s ease; }
 .section.active { display: block; }
-
-@keyframes fadeIn { 
-  from { opacity: 0; transform: translateY(8px); } 
-  to { opacity: 1; transform: translateY(0); } 
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
