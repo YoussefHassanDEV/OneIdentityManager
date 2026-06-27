@@ -60,25 +60,6 @@
   transition: width 0.3s;
 }
 
-/* search box (NEW) */
-.sidebar-search {
-  padding: 10px 16px 4px;
-}
-.sidebar-search input {
-  width: 100%;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  padding: 8px 12px;
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 12.5px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.sidebar-search input:focus { border-color: var(--blue-light); }
-.sidebar-search input::placeholder { color: var(--text3); }
-
 .sidebar-section {
   padding: 14px 16px 4px;
   font-size: 9px;
@@ -116,7 +97,7 @@
   color: var(--blue-light);
   border-left: 2px solid var(--blue-light);
 }
-/* visited checkmark (NEW) */
+/* visited checkmark */
 .sidebar-nav li a.done .nav-check { opacity: 1; }
 .nav-check {
   margin-left: auto;
@@ -140,11 +121,10 @@
 }
 .nav-badge.green { background: var(--green-dim); color: var(--green); border-color: rgba(0,214,143,0.3); }
 .nav-badge.amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(255,167,38,0.3); }
-/* when a badge AND check both present, push check after badge */
 .sidebar-nav li a.done .nav-badge { margin-left: auto; }
 .sidebar-nav li a.done .nav-badge ~ .nav-check { margin-left: 6px; }
 
-/* hidden nav item during search (NEW) */
+/* hidden nav item during search */
 .sidebar-nav li.hide-search { display: none; }
 .sidebar-section.hide-search { display: none; }
 
