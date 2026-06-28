@@ -1,9 +1,10 @@
 /**
  * Chatbot Module
- * Gemini-powered AI tutor scoped to the OneIM study guide.
+ * Groq-powered AI tutor scoped to the OneIM study guide.
  */
 
-const GEMINI_MODEL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
 
 const SYSTEM_PROMPT = `You are an expert OneIM (One Identity Manager) tutor assistant embedded inside a study guide called "OneIM Zero to Hero" by Youssef Hassan at SmplID.
 
@@ -35,11 +36,11 @@ const Chatbot = {
   isLoading: false,
 
   getKey() {
-    return localStorage.getItem('oneim_gemini_key') || '';
+    return localStorage.getItem('oneim_groq_key') || '';
   },
 
   saveKey(key) {
-    localStorage.setItem('oneim_gemini_key', key.trim());
+    localStorage.setItem('oneim_groq_key', key.trim());
   },
 
   init() {
@@ -60,7 +61,7 @@ const Chatbot = {
             <div class="chat-avatar">🤖</div>
             <div>
               <div class="chat-title">OneIM AI Tutor</div>
-              <div class="chat-subtitle">Powered by Gemini · Ask anything about OneIM</div>
+              <div class="chat-subtitle">Powered by Groq · Ask anything about OneIM</div>
             </div>
           </div>
           <div style="display:flex;gap:6px;align-items:center;">
@@ -70,9 +71,9 @@ const Chatbot = {
         </div>
 
         <div id="chat-key-banner" class="chat-key-banner" style="display:none;">
-          <p>Enter your <a href="https://aistudio.google.com/apikey" target="_blank">Gemini API key</a> to start:</p>
+          <p>Enter your <a href="https://console.groq.com/keys" target="_blank">Groq API key</a> to start:</p>
           <div class="chat-key-row">
-            <input type="password" id="chat-key-input" placeholder="AIza..." autocomplete="off">
+            <input type="password" id="chat-key-input" placeholder="gsk_..." autocomplete="off">
             <button onclick="Chatbot.submitKey()">Save</button>
           </div>
         </div>
@@ -107,7 +108,6 @@ const Chatbot = {
     container.innerHTML = html;
     document.body.appendChild(container);
 
-    // Show key banner if no key saved yet
     if (!this.getKey()) {
       document.getElementById('chat-key-banner').style.display = 'block';
     }
@@ -153,7 +153,7 @@ const Chatbot = {
     this.saveKey(key);
     document.getElementById('chat-key-banner').style.display = 'none';
     input.value = '';
-    this.appendMsg('assistant', '✅ API key saved! Ask me anything about OneIM.');
+    this.appendMsg('assistant', '✅ Groq API key saved! Ask me anything about OneIM.');
     document.getElementById('chat-input').focus();
   },
 
@@ -176,17 +176,24 @@ const Chatbot = {
     input.value = '';
     document.getElementById('chat-suggestions').style.display = 'none';
     this.appendMsg('user', query);
-    this.history.push({ role: 'user', parts: [{ text: query }] });
+    this.history.push({ role: 'user', content: query });
     this.setLoading(true);
 
     try {
-      const res = await fetch(`${GEMINI_MODEL}?key=${key}`, {
+      const res = await fetch(GROQ_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${key}`
+        },
         body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: this.history,
-          generationConfig: { temperature: 0.7, maxOutputTokens: 1024 }
+          model: GROQ_MODEL,
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...this.history
+          ],
+          temperature: 0.7,
+          max_tokens: 1024
         })
       });
 
@@ -196,8 +203,8 @@ const Chatbot = {
       }
 
       const data  = await res.json();
-      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, no response.';
-      this.history.push({ role: 'model', parts: [{ text: reply }] });
+      const reply = data?.choices?.[0]?.message?.content || 'Sorry, no response.';
+      this.history.push({ role: 'assistant', content: reply });
       this.appendMsg('assistant', reply);
 
     } catch (err) {
