@@ -7,23 +7,60 @@
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
 
-/* ── MOBILE ── */
+/* ── MOBILE & TABLET ── */
 .mobile-bar { display: none; }
+
 @media (max-width: 900px) {
   :root { --sidebar-w: 0px; }
+
+  /* Sidebar slides in */
   #sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
     width: 280px;
+    z-index: 160;
   }
   #sidebar.open { transform: translateX(0); }
-  #main { margin-left: 0; }
-  #content { padding: 72px 20px 28px; }
+
+  /* Main content */
+  #main { margin-left: 0; width: 100%; overflow-x: hidden; }
+  #content {
+    padding: 72px 16px 40px;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Prevent anything from overflowing */
+  .section { overflow-x: hidden; }
+  * { max-width: 100%; box-sizing: border-box; }
+
+  /* Grids */
   .stat-grid { grid-template-columns: 1fr 1fr; }
-  .feature-list { grid-template-columns: 1fr; }
-  .compare-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
   .card-grid-3 { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .feature-list { grid-template-columns: 1fr; }
   .section-pager { flex-direction: column; }
+
+  /* Tables — scrollable on mobile */
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Code blocks — scrollable */
+  .code-block { font-size: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Cards */
+  .card { padding: 16px; }
+  .card-icon { font-size: 22px; }
+
+  /* Flow container */
+  .flow-container { flex-direction: column; gap: 8px; }
+  .flow-arrow { transform: rotate(90deg); }
+
+  /* Page header */
+  .page-header h1 { font-size: 26px; }
+
+  /* Mobile top bar */
   .mobile-bar {
     display: flex;
     align-items: center;
@@ -42,8 +79,18 @@
     color: var(--text);
     font-size: 22px;
     cursor: pointer;
+    flex-shrink: 0;
   }
-  .mobile-bar .mobile-title { font-size: 14px; font-weight: 700; color: var(--accent); }
+  .mobile-bar .mobile-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Backdrop */
   .mobile-backdrop {
     display: none;
     position: fixed; inset: 0;
@@ -51,4 +98,24 @@
     z-index: 140;
   }
   .mobile-backdrop.show { display: block; }
+
+  /* Chatbot — full width bottom sheet */
+  #chat-panel {
+    bottom: 0; right: 0; left: 0;
+    width: 100%;
+    max-height: 75vh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+  }
+  #chat-fab { bottom: 20px; right: 16px; }
+  #chat-input { font-size: 16px; }
+}
+
+/* ── SMALL PHONES ── */
+@media (max-width: 400px) {
+  #content { padding: 64px 12px 32px; }
+  .page-header h1 { font-size: 22px; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .chat-suggestions { gap: 4px; }
+  .chat-suggestions button { font-size: 10px; padding: 4px 10px; }
 }
