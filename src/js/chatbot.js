@@ -4,8 +4,7 @@
  */
 
 const GEMINI_API_KEY = 'AQ.Ab8RN6KZ2yiorsEaPuidgTg4k3O8rbB2MV4ylbkeWSV-T9u1Ng';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
-
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 const SYSTEM_PROMPT = `You are an expert OneIM (One Identity Manager) tutor assistant embedded inside a study guide called "OneIM Zero to Hero" by Youssef Hassan at SmplID.
 
 Your job is to answer questions about One Identity Manager and Identity Governance & Administration (IGA) topics covered in this guide. Topics include:
