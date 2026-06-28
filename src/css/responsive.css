@@ -13,7 +13,13 @@
 @media (max-width: 900px) {
   :root { --sidebar-w: 0px; }
 
-  /* Sidebar slides in */
+  /* Overflow fix */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* Sidebar */
   #sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
@@ -23,11 +29,16 @@
   #sidebar.open { transform: translateX(0); }
 
   /* Main content */
-  #main { margin-left: 0; width: 100%; overflow-x: hidden; }
+  #main {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
   #content {
     padding: 72px 16px 40px;
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
     box-sizing: border-box;
   }
 
@@ -41,9 +52,8 @@
   .card-grid-3 { grid-template-columns: 1fr; }
   .compare-grid { grid-template-columns: 1fr; }
   .feature-list { grid-template-columns: 1fr; }
-  .section-pager { flex-direction: column; }
 
-  /* Tables — scrollable on mobile */
+  /* Tables — scrollable */
   .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
   /* Code blocks — scrollable */
@@ -59,6 +69,28 @@
 
   /* Page header */
   .page-header h1 { font-size: 26px; }
+  .page-header {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Section pager */
+  .section-pager {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .pager-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Quiz & callouts */
+  .quiz-scorebar,
+  .quiz-box,
+  .callout {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
   /* Mobile top bar */
   .mobile-bar {
@@ -72,6 +104,8 @@
     border-bottom: 1px solid var(--border);
     z-index: 150;
     padding: 0 16px;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .mobile-bar .menu-btn {
     background: none;
@@ -101,11 +135,14 @@
 
   /* Chatbot — full width bottom sheet */
   #chat-panel {
-    bottom: 0; right: 0; left: 0;
-    width: 100%;
-    max-height: 75vh;
-    border-radius: 20px 20px 0 0;
-    border-bottom: none;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 75vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    border-bottom: none !important;
   }
   #chat-fab { bottom: 20px; right: 16px; }
   #chat-input { font-size: 16px; }
