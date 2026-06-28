@@ -594,3 +594,29 @@ mark.sh-active {
   #chat-fab { bottom: 20px; right: 20px; }
   #chat-input { font-size: 16px; }
 }
+/* Key banner */
+.chat-key-banner {
+  padding: 12px 16px;
+  background: rgba(251,191,36,0.08);
+  border-bottom: 1px solid rgba(251,191,36,0.2);
+  font-size: 12px;
+  color: #fcd34d;
+}
+.chat-key-banner a { color: var(--blue-light); }
+.chat-key-banner p { margin: 0 0 8px; }
+.chat-key-row { display: flex; gap: 6px; }
+.chat-key-row input {
+  flex: 1; background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 7px; padding: 7px 10px; color: var(--text);
+  font-size: 12px; outline: none;
+}
+.chat-key-row button {
+  background: var(--blue); border: none; border-radius: 7px;
+  color: #fff; font-size: 12px; padding: 7px 14px; cursor: pointer;
+}
+.chat-key-btn {
+  background: rgba(255,255,255,0.07); border: 1px solid var(--border);
+  border-radius: 7px; cursor: pointer; font-size: 14px;
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+}
+.chat-key-btn:hover { background: rgba(255,255,255,0.12); }
